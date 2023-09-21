@@ -1,16 +1,4 @@
-# idnow_test
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. if gleap is enabled issue is reproducible
+2. There are 3 activities, MainActivity (Flutter), FirstActivity, SecondActivity
+3. First and Second activity use custom theme with android:background property set
+which makes Gleap overlay pick up the color and cover all of the content on screen
