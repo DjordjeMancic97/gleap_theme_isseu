@@ -20,7 +20,6 @@
     <!--Used by FirstActivity-->
     <style name="FirstActivityTheme" parent="Theme.Material3.Light">
         <item name="android:background">@color/colorPrimary</item>
-<!--        <item name="android:colorBackground">@color/colorPrimary</item>-->
     </style>
 
     <!--Used by SecondActivity-->
