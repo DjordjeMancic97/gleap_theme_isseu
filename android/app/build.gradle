@@ -1,0 +1,103 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.example.idnow_test"
+    compileSdkVersion 34
+    ndkVersion flutter.ndkVersion
+
+    applicationVariants.all {
+        compileConfiguration.resolutionStrategy {
+            preferProjectModules()
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.example.idnow_test"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 26
+        targetSdkVersion 34
+        multiDexEnabled true
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+//    implementation "androidx.biometric:biometric-ktx:1.2.0-alpha05"
+//    implementation 'com.nimbusds:nimbus-jose-jwt:9.31'
+//    implementation 'com.google.android.gms:play-services-basement:18.2.0'
+//    implementation 'com.google.android.gms:play-services-base:18.2.0'
+//    implementation 'de.idnow.sdk:idnow-android-sdk:6.6.0'
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
+//    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+//    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation 'androidx.annotation:annotation:1.7.0'
+//    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+
+//    implementation 'androidx.recyclerview:recyclerview:1.3.1'
+//    implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.32'
+//    implementation 'me.relex:circleindicator:2.1.6'
+//    implementation 'de.idnow.insights:idnow-android-insights-sdk:2.0.0'
+
+//    compileOnly 'de.idnow.android.eid:idnow-android-eid-sdk:2.7.1'
+//    implementation 'com.airbnb.android:lottie:5.1.1'
+//    implementation 'androidx.preference:preference-ktx:1.2.1'
+//    implementation "androidx.percentlayout:percentlayout:1.0.0"
+//    implementation  'com.google.code.gson:gson:2.9.0'
+//    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+}
